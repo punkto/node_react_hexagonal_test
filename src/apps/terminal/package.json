@@ -1,0 +1,16 @@
+{
+  "name": "terminal",
+  "version": "1.0.0",
+  "description": "command line version of this app",
+  "main": "cli.ts",
+  "scripts": {
+    "test": "test",
+    "start": "ts-node cli.ts $@"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "yargs": "^17.7.2"
+  }
+}
