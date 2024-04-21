@@ -1,4 +1,4 @@
-# Example of kind of Hexagonal architecture for a react app
+# Example of kind of Hexagonal architecture for a react app (Just for experimentation purposes!)
 
 A simple data model and contollers used for a React and console based apps.
 
