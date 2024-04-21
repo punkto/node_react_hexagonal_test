@@ -1,7 +1,7 @@
 // A Student react component, in functional form, that displays the student's name and age
 import React, { useState } from "react";
-import Student from "../data_model/Student";
-import StudentController from "../controllers/StudentController";
+import Student from '@data_model/Student';
+import StudentController from '@controllers/StudentController';
 
 // A functional component that displays the student's name, age and grade with a button to increase
 // and decrease the grade

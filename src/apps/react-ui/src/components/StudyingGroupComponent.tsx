@@ -1,9 +1,9 @@
 // A component that displays a studying group with students
 import React, { useState } from "react";
-import StudyingGroup from "../data_model/StudyingGroup";
-import StudyingGroupController from "../controllers/StudyingGroupController";
+import StudyingGroup from "@data_model/StudyingGroup";
+import StudyingGroupController from "@controllers/StudyingGroupController";
 import StudentComponent from "./StudentComponent";
-import Student from "../data_model/Student";
+import Student from "@data_model/Student";
 
 // A functional component that displays the studying group's name and students
 const StudyingGroupComponent = (props: { studyingGroup: StudyingGroup }) => {
