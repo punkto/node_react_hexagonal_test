@@ -2,7 +2,7 @@
 import Student from "./Student";
 
 class StudyingGroup {
-  name: string;
+  name!: string;
   students: Student[];
 
   constructor(name: string, students: Student[]) {

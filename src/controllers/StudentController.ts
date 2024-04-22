@@ -1,41 +1,46 @@
 // Controller for Student
 //
 // The StudentController class is a controller for the Student model. It has methods to increase and decrease the grade of a student. The increaseGrade and decreaseGrade methods are used to update the grade of a student. The StudentController class is used to interact with the Student model and update the grade of a student.
+import Grade from '../data_model/Grade';
 import Student from '../data_model/Student';
 
 class StudentController {
+  get_student_with_name(newStudentName: string) {
+    // Complete with some default values
+    return new Student(newStudentName, 20, Grade.C);
+  }
+
+
   // Increase the grade of a student, that is a student object
-  increaseGrade(student: Student) {
-    if (student.grade === "A") {
-      student.grade = "A";
-    } else if (student.grade === "B") {
-      student.grade = "A";
-    } else if (student.grade === "C") {
-      student.grade = "B";
-    } else if (student.grade === "D") {
-      student.grade = "C";
-    } else if (student.grade === "F") {
-      student.grade = "D";
+  increaseGrade(student: Student): void {
+    if (student.grade === Grade.A) {
+      student.grade = Grade.A;
+    } else if (student.grade === Grade.B) {
+      student.grade = Grade.A;
+    } else if (student.grade === Grade.C) {
+      student.grade = Grade.B;
+    } else if (student.grade === Grade.D) {
+      student.grade = Grade.C;
+    } else if (student.grade === Grade.F) {
+      student.grade = Grade.D;
     } else {
-      student.grade = "A";
+      student.grade = Grade.A;
     }
-    return student;
   }
 
   // Decrease the grade of a student
-  decreaseGrade(student: Student) {
-    if (student.grade === "A") {
-      student.grade = "B";
-    } else if (student.grade === "B") {
-      student.grade = "C";
-    } else if (student.grade === "C") {
-      student.grade = "D";
-    } else if (student.grade === "D") {
-      student.grade = "F";
+  decreaseGrade(student: Student):void {
+    if (student.grade === Grade.A) {
+      student.grade = Grade.B;
+    } else if (student.grade === Grade.B) {
+      student.grade = Grade.C;
+    } else if (student.grade === Grade.C) {
+      student.grade = Grade.D;
+    } else if (student.grade === Grade.D) {
+      student.grade = Grade.F;
     } else {
-      student.grade = "F";
+      student.grade = Grade.F;
     }
-    return student;
   }
 }
 

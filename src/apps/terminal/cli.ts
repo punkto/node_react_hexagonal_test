@@ -1,11 +1,9 @@
-// Usage examples:
-// npm start -- add --name "Jon Doe"
+// Entry point for the CLI application
 
 import yargs from "yargs";
 import * as fs from "fs";
 
 import StudyingGroupController from "../../controllers/StudyingGroupController";
-import StudyingGroup from "../../data_model/StudyingGroup";
 
 yargs
   .command(

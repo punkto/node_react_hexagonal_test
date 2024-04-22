@@ -1,6 +1,7 @@
 // Controller for StudyingGroup
 import StudyingGroup from "../data_model/StudyingGroup";
 import Student from "../data_model/Student";
+import StudentController from "./StudentController";
 
 class StudyingGroupController {
   // Parse a studying group from a JSON string into a StudyingGroup object
@@ -17,7 +18,9 @@ class StudyingGroupController {
       console.error("A student's name cannot be empty. Did not add student.");
       return studyingGroup;
     }
-    const student = new Student(newStudentName);
+
+    const studentController = new StudentController();
+    const student = studentController.get_student_with_name(newStudentName);
     studyingGroup.students.push(student);
     return studyingGroup;
   }

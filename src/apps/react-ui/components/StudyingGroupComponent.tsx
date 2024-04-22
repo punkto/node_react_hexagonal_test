@@ -26,7 +26,7 @@ const StudyingGroupComponent = (props: { studyingGroup: StudyingGroup }) => {
     <div>
       <h1>Studying Group: {props.studyingGroup.name}</h1>
       <h2>Students:</h2>
-      {studyingGroup.students.map((student, index) => (
+      {studyingGroup.students.map((student: Student, index: React.Key | null | undefined) => (
         <div key={index}>
           <StudentComponent student={student} />
           <button onClick={() => removeStudent(student)}>Remove Student</button>
