@@ -4,35 +4,38 @@ import Student from "../data_model/Student";
 import StudentController from "./StudentController";
 
 class StudyingGroupController {
+  static get_empty_studying_group(): StudyingGroup {
+    return new StudyingGroup("", []);
+  }
+
   // Parse a studying group from a JSON string into a StudyingGroup object
-  parseStudyingGroup(fileContent: string) {
+  static parseStudyingGroup(fileContent: string) {
     if (!fileContent) {
       return new StudyingGroup("", []);
     }
     return JSON.parse(fileContent);
   }
 
-  addStudentWithName(studyingGroup: StudyingGroup, newStudentName: string) {
+  static addStudentWithName(studyingGroup: StudyingGroup, newStudentName: string) {
     // Create a new student with the given name if the name is not empty
     if (!newStudentName) {
       console.error("A student's name cannot be empty. Did not add student.");
       return studyingGroup;
     }
 
-    const studentController = new StudentController();
-    const student = studentController.get_student_with_name(newStudentName);
+    const student = StudentController.get_student_with_name(newStudentName);
     studyingGroup.students.push(student);
     return studyingGroup;
   }
 
   // Add a student to the group
-  addStudent(studyingGroup: StudyingGroup, student: Student) {
+  static addStudent(studyingGroup: StudyingGroup, student: Student) {
     studyingGroup.students.push(student);
     return studyingGroup;
   }
 
   // Remove a student from the group
-  removeStudent(studyingGroup: StudyingGroup, student: Student) {
+  static removeStudent(studyingGroup: StudyingGroup, student: Student) {
     studyingGroup.students = studyingGroup.students.filter(
       (s) => s !== student
     );

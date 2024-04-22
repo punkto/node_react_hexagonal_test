@@ -29,11 +29,10 @@ yargs
       const fileContent = fs.readFileSync(argv.file, "utf8");
       console.log("File content: ", fileContent);
 
-      const studyingGroupController = new StudyingGroupController();
       const studyingGroup =
-        studyingGroupController.parseStudyingGroup(fileContent);
+        StudyingGroupController.parseStudyingGroup(fileContent);
 
-      studyingGroupController.addStudentWithName(studyingGroup, argv.name);
+      StudyingGroupController.addStudentWithName(studyingGroup, argv.name);
 
       console.log(studyingGroup);
 

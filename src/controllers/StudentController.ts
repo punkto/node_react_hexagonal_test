@@ -5,14 +5,14 @@ import Grade from '../data_model/Grade';
 import Student from '../data_model/Student';
 
 class StudentController {
-  get_student_with_name(newStudentName: string) {
+  static get_student_with_name(newStudentName: string) {
     // Complete with some default values
     return new Student(newStudentName, 20, Grade.C);
   }
 
 
   // Increase the grade of a student, that is a student object
-  increaseGrade(student: Student): void {
+  static increaseGrade(student: Student): void {
     if (student.grade === Grade.A) {
       student.grade = Grade.A;
     } else if (student.grade === Grade.B) {
@@ -29,7 +29,7 @@ class StudentController {
   }
 
   // Decrease the grade of a student
-  decreaseGrade(student: Student):void {
+  static decreaseGrade(student: Student):void {
     if (student.grade === Grade.A) {
       student.grade = Grade.B;
     } else if (student.grade === Grade.B) {

@@ -1,5 +1,5 @@
 // A component that displays a studying group with students
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudyingGroup from "@data_model/StudyingGroup";
 import StudyingGroupController from "@controllers/StudyingGroupController";
 import StudentComponent from "./StudentComponent";
@@ -10,15 +10,18 @@ const StudyingGroupComponent = (props: { studyingGroup: StudyingGroup }) => {
   const [studyingGroup, setStudyingGroup] = useState(props.studyingGroup);
   const [newStudentName, setNewStudentName] = useState("");
 
+  // Update the state when the studying group changes in the parent component
+  useEffect(() => {
+    setStudyingGroup(props.studyingGroup);
+  }, [props.studyingGroup]);
+
   const addStudent = () => {
-    const studyingGroupController = new StudyingGroupController();
-    studyingGroupController.addStudentWithName(studyingGroup, newStudentName);
+    StudyingGroupController.addStudentWithName(studyingGroup, newStudentName);
     setNewStudentName("");
   };
 
   const removeStudent = (student: Student) => {
-    const studyingGroupController = new StudyingGroupController();
-    studyingGroupController.removeStudent(studyingGroup, student);
+    StudyingGroupController.removeStudent(studyingGroup, student);
     setStudyingGroup({ ...studyingGroup }); // Update the state to force a re-render
   };
 

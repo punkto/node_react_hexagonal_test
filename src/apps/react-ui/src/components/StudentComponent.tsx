@@ -10,14 +10,12 @@ const StudentComponent = (props: { student: Student }) => {
   const [, setRenderCount] = useState(0);
 
   const increaseGrade = () => {
-    const studentController = new StudentController();
-    studentController.increaseGrade(student);
+    StudentController.increaseGrade(student);
     setRenderCount((prevCount) => prevCount + 1);
   };
 
   const decreaseGrade = () => {
-    const studentController = new StudentController();
-    studentController.decreaseGrade(student);
+    StudentController.decreaseGrade(student);
     setRenderCount((prevCount) => prevCount + 1);
   };
 
