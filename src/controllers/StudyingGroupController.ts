@@ -4,6 +4,11 @@ import Student from "../data_model/Student";
 import StudentController from "./StudentController";
 
 class StudyingGroupController {
+
+  static get_studying_group_to_string(studyingGroup: StudyingGroup): string {
+    return JSON.stringify(studyingGroup, null, 2);
+  }
+
   static get_empty_studying_group(): StudyingGroup {
     return new StudyingGroup("", []);
   }
