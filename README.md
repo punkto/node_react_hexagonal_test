@@ -1,3 +1,5 @@
+[![Run Tests](https://github.com/punkto/node_react_hexagonal_test/actions/workflows/run_tests.yml/badge.svg)](https://github.com/punkto/node_react_hexagonal_test/actions/workflows/run_tests.yml)
+
 # Example of kind of Hexagonal architecture for a react app (Just for experimentation purposes!)
 
 A simple data model and contollers used for a React and console based apps.
