@@ -6,7 +6,7 @@ describe("StudentController", () => {
   let student: Student;
 
   beforeEach(() => {
-    student = new Student("John Doe", 20, Grade.C);
+    student = new Student("1", "John Doe", 20, Grade.C);
   });
 
   describe("increaseGrade", () => {
@@ -36,5 +36,4 @@ describe("StudentController", () => {
       expect(student.grade).toBe(Grade.F);
     });
   });
-
 });

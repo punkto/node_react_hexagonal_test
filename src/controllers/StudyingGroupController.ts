@@ -9,14 +9,43 @@ class StudyingGroupController {
   }
 
   // Parse a studying group from a JSON string into a StudyingGroup object
-  static parseStudyingGroup(fileContent: string) {
+  static parseStudyingGroup(fileContent: string): StudyingGroup {
     if (!fileContent) {
       return new StudyingGroup("", []);
     }
-    return JSON.parse(fileContent);
+    const unsanitized_studying_group = JSON.parse(fileContent);
+    return StudyingGroupController.sanitizeStudyingGroup(
+      unsanitized_studying_group
+    );
   }
 
-  static addStudentWithName(studyingGroup: StudyingGroup, newStudentName: string) {
+  static sanitizeStudyingGroup(unsanitized_studying_group: any): StudyingGroup {
+    const sanitized_students = unsanitized_studying_group.students.map(
+      (student: any) => {
+        return StudentController.get_student(
+          student.uuid,
+          student.name,
+          student.age,
+          student.grade
+        );
+      }
+    );
+    if (!unsanitized_studying_group.name) {
+      console.error(
+        "A studying group's name cannot be empty. Using a default name."
+      );
+      unsanitized_studying_group.name = "A Studying Group";
+    }
+    return new StudyingGroup(
+      unsanitized_studying_group.name,
+      sanitized_students
+    );
+  }
+
+  static addStudentWithName(
+    studyingGroup: StudyingGroup,
+    newStudentName: string
+  ) {
     // Create a new student with the given name if the name is not empty
     if (!newStudentName) {
       console.error("A student's name cannot be empty. Did not add student.");

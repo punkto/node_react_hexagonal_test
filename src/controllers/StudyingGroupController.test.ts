@@ -10,7 +10,7 @@ describe("StudyingGroupController", () => {
 
   beforeEach(() => {
     studyingGroup = new StudyingGroup("Math", []);
-    student = new Student("John Doe", 20, Grade.A);
+    student = new Student("1", "John Doe", 20, Grade.A);
   });
 
   describe("addStudent", () => {

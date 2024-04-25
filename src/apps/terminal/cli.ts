@@ -27,7 +27,7 @@ yargs
       console.log("Adding student with name: ", argv.name);
 
       const fileContent = fs.readFileSync(argv.file, "utf8");
-      console.log("File content: ", fileContent);
+      console.log("File content:\n---\n", fileContent, "\n---");
 
       const studyingGroup =
         StudyingGroupController.parseStudyingGroup(fileContent);
